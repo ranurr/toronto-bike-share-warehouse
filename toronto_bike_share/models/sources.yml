@@ -1,0 +1,7 @@
+version: 2
+sources:
+  - name: raw
+    schema: raw
+    tables:
+      - name: trips
+        description: Unchanged source columns, plus a source row number and content hash.

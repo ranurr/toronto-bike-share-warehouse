@@ -1,0 +1,11 @@
+station_name,station_id,departures,arrivals,net_departures
+Bay St / College St (East Side),7006,3880.0,3740.0,140.0
+Bay St / Wellesley St W,7030,3805.0,2498.0,1307.0
+Widmer St / Adelaide St W - SMART,7017,3532.0,3568.0,-36.0
+Spadina Ave / Harbord St - SMART,7285,3169.0,2668.0,501.0
+Queen St W / John St,7542,3098.0,3267.0,-169.0
+St. George St / Bloor St W,7002,3088.0,3102.0,-14.0
+College St / Major St,7078,3057.0,3109.0,-52.0
+Charles St W / Balmuto St - SMART,7281,2983.0,1624.0,1359.0
+Gould St / Mutual St,7028,2973.0,2758.0,215.0
+Church St  / Wood St,7089,2941.0,2351.0,590.0

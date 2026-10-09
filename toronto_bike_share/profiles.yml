@@ -1,0 +1,8 @@
+toronto_bike_share:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: "{{ env_var('BIKE_DB_PATH', 'warehouse/bike_share.duckdb') }}"
+      schema: main
+      threads: 2

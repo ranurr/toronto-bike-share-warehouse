@@ -1,0 +1,36 @@
+Loaded 552,073 raw rows from the verified real-data snapshot.
+p ....................... [RUN]
+00:39:12  15 of 20 PASS relationships_fct_trip_start_station_id__station_id__ref_dim_station_  [PASS in 0.01s]
+00:39:12  18 of 20 START sql table model main.mart_station_hour .......................... [RUN]
+00:39:12  17 of 20 OK created sql table model main.mart_daily_ridership .................. [OK in 0.03s]
+00:39:12  18 of 20 OK created sql table model main.mart_station_hour ..................... [OK in 0.20s]
+00:39:12  19 of 20 START test reconcile_counts ........................................... [RUN]
+00:39:12  20 of 20 START test unique_mart_grains ......................................... [RUN]
+00:39:12  20 of 20 PASS unique_mart_grains ............................................... [PASS in 0.02s]
+00:39:12  19 of 20 PASS reconcile_counts ................................................. [PASS in 0.02s]
+00:39:12  
+00:39:12  Finished running 5 table models, 15 data tests in 0 hours 0 minutes and 1.41 seconds (1.41s).
+00:39:12  
+00:39:12  Completed successfully
+00:39:12  
+00:39:12  Done. PASS=20 WARN=0 ERROR=0 SKIP=0 NO-OP=0 REUSED=0 TOTAL=20
+
+Loaded 552,073 raw rows from the verified real-data snapshot.
+p ....................... [RUN]
+00:39:16  15 of 20 PASS relationships_fct_trip_start_station_id__station_id__ref_dim_station_  [PASS in 0.02s]
+00:39:16  18 of 20 START sql table model main.mart_station_hour .......................... [RUN]
+00:39:16  17 of 20 OK created sql table model main.mart_daily_ridership .................. [OK in 0.03s]
+00:39:16  18 of 20 OK created sql table model main.mart_station_hour ..................... [OK in 0.20s]
+00:39:16  20 of 20 START test unique_mart_grains ......................................... [RUN]
+00:39:16  19 of 20 START test reconcile_counts ........................................... [RUN]
+00:39:17  20 of 20 PASS unique_mart_grains ............................................... [PASS in 0.02s]
+00:39:17  19 of 20 PASS reconcile_counts ................................................. [PASS in 0.02s]
+00:39:17  
+00:39:17  Finished running 5 table models, 15 data tests in 0 hours 0 minutes and 1.39 seconds (1.39s).
+00:39:17  
+00:39:17  Completed successfully
+00:39:17  
+00:39:17  Done. PASS=20 WARN=0 ERROR=0 SKIP=0 NO-OP=0 REUSED=0 TOTAL=20
+
+Rerun produced identical counts and row-content checksums for all six tables.
+Done. Open reports/findings.md or run: python -m streamlit run app.py

@@ -1,0 +1,5 @@
+rejection_reason,rows
+missing_or_invalid_station_id,1177
+invalid_timestamp,498
+invalid_duration,220
+duration_timestamp_mismatch,32

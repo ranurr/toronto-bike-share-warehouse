@@ -1,0 +1,12 @@
+name: toronto_bike_share
+version: '1.0.0'
+config-version: 2
+profile: toronto_bike_share
+model-paths: [models]
+test-paths: [dbt_tests]
+clean-targets: [target, logs]
+models:
+  toronto_bike_share:
+    +materialized: table
+flags:
+  send_anonymous_usage_stats: false

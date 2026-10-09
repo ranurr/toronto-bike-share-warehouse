@@ -1,0 +1,97 @@
+{
+  "run_at_utc": "2026-10-09T00:39:13.259448+00:00",
+  "python_version": "3.14.7",
+  "fingerprints": {
+    "raw.trips": [
+      552073,
+      "3512733768918361933",
+      "5092790301602396158504827"
+    ],
+    "stg_trips": [
+      552073,
+      "2200466111360695883",
+      "5096986708556263827205153"
+    ],
+    "dim_station": [
+      1025,
+      "13194424150040738172",
+      "9894597246981782137158"
+    ],
+    "fct_trip": [
+      550146,
+      "3988538722224056219",
+      "5082452875903055411646825"
+    ],
+    "mart_daily_ridership": [
+      369,
+      "14899277362342244025",
+      "3308829794438331374829"
+    ],
+    "mart_station_hour": [
+      543298,
+      "15962405844269087930",
+      "5000489769128627321829848"
+    ]
+  },
+  "rerun_checked": true,
+  "rerun_identical": true,
+  "rerun_fingerprints": {
+    "raw.trips": [
+      552073,
+      "3512733768918361933",
+      "5092790301602396158504827"
+    ],
+    "stg_trips": [
+      552073,
+      "2200466111360695883",
+      "5096986708556263827205153"
+    ],
+    "dim_station": [
+      1025,
+      "13194424150040738172",
+      "9894597246981782137158"
+    ],
+    "fct_trip": [
+      550146,
+      "3988538722224056219",
+      "5082452875903055411646825"
+    ],
+    "mart_daily_ridership": [
+      369,
+      "14899277362342244025",
+      "3308829794438331374829"
+    ],
+    "mart_station_hour": [
+      543298,
+      "15962405844269087930",
+      "5000489769128627321829848"
+    ]
+  },
+  "quality": {
+    "source_rows": 552073,
+    "accepted_trips": 550146,
+    "excluded_rows": 1927,
+    "station_ids": 1025,
+    "long_trips_over_4_hours_retained": 215,
+    "duration_timestamp_mismatch_rows_before_other_filters": 32,
+    "latest_accepted_arrival": "2026-04-01 04:37:24",
+    "rejection_reasons": [
+      {
+        "rejection_reason": "missing_or_invalid_station_id",
+        "rows": 1177
+      },
+      {
+        "rejection_reason": "invalid_timestamp",
+        "rows": 498
+      },
+      {
+        "rejection_reason": "invalid_duration",
+        "rows": 220
+      },
+      {
+        "rejection_reason": "duration_timestamp_mismatch",
+        "rows": 32
+      }
+    ]
+  }
+}

@@ -1,0 +1,52 @@
+00:39:15  Running with dbt=1.12.5
+00:39:15  Registered adapter: duckdb=1.11.0
+00:39:15  Found 5 models, 15 data tests, 1 source, 500 macros
+00:39:15  
+00:39:15  Concurrency: 2 threads (target='dev')
+00:39:15  
+00:39:15  1 of 20 START sql table model main.stg_trips ................................... [RUN]
+00:39:16  1 of 20 OK created sql table model main.stg_trips .............................. [OK in 0.70s]
+00:39:16  3 of 20 START test unique_stg_trips_source_row_number .......................... [RUN]
+00:39:16  2 of 20 START test not_null_stg_trips_source_row_number ........................ [RUN]
+00:39:16  2 of 20 PASS not_null_stg_trips_source_row_number .............................. [PASS in 0.02s]
+00:39:16  3 of 20 PASS unique_stg_trips_source_row_number ................................ [PASS in 0.02s]
+00:39:16  4 of 20 START sql table model main.dim_station ................................. [RUN]
+00:39:16  5 of 20 START sql table model main.fct_trip .................................... [RUN]
+00:39:16  5 of 20 OK created sql table model main.fct_trip ............................... [OK in 0.32s]
+00:39:16  4 of 20 OK created sql table model main.dim_station ............................ [OK in 0.32s]
+00:39:16  7 of 20 START test not_null_fct_trip_ended_at .................................. [RUN]
+00:39:16  6 of 20 START test not_null_fct_trip_end_station_id ............................ [RUN]
+00:39:16  7 of 20 PASS not_null_fct_trip_ended_at ........................................ [PASS in 0.01s]
+00:39:16  8 of 20 START test not_null_fct_trip_start_station_id .......................... [RUN]
+00:39:16  6 of 20 PASS not_null_fct_trip_end_station_id .................................. [PASS in 0.01s]
+00:39:16  9 of 20 START test not_null_fct_trip_started_at ................................ [RUN]
+00:39:16  8 of 20 PASS not_null_fct_trip_start_station_id ................................ [PASS in 0.01s]
+00:39:16  10 of 20 START test not_null_fct_trip_trip_id .................................. [RUN]
+00:39:16  9 of 20 PASS not_null_fct_trip_started_at ...................................... [PASS in 0.01s]
+00:39:16  11 of 20 START test unique_fct_trip_trip_id .................................... [RUN]
+00:39:16  10 of 20 PASS not_null_fct_trip_trip_id ........................................ [PASS in 0.01s]
+00:39:16  12 of 20 START test valid_fact ................................................. [RUN]
+00:39:16  11 of 20 PASS unique_fct_trip_trip_id .......................................... [PASS in 0.01s]
+00:39:16  13 of 20 START test not_null_dim_station_station_id ............................ [RUN]
+00:39:16  12 of 20 PASS valid_fact ....................................................... [PASS in 0.01s]
+00:39:16  14 of 20 START test relationships_fct_trip_end_station_id__station_id__ref_dim_station_  [RUN]
+00:39:16  13 of 20 PASS not_null_dim_station_station_id .................................. [PASS in 0.02s]
+00:39:16  15 of 20 START test relationships_fct_trip_start_station_id__station_id__ref_dim_station_  [RUN]
+00:39:16  14 of 20 PASS relationships_fct_trip_end_station_id__station_id__ref_dim_station_  [PASS in 0.02s]
+00:39:16  16 of 20 START test unique_dim_station_station_id .............................. [RUN]
+00:39:16  16 of 20 PASS unique_dim_station_station_id .................................... [PASS in 0.01s]
+00:39:16  17 of 20 START sql table model main.mart_daily_ridership ....................... [RUN]
+00:39:16  15 of 20 PASS relationships_fct_trip_start_station_id__station_id__ref_dim_station_  [PASS in 0.02s]
+00:39:16  18 of 20 START sql table model main.mart_station_hour .......................... [RUN]
+00:39:16  17 of 20 OK created sql table model main.mart_daily_ridership .................. [OK in 0.03s]
+00:39:16  18 of 20 OK created sql table model main.mart_station_hour ..................... [OK in 0.20s]
+00:39:16  20 of 20 START test unique_mart_grains ......................................... [RUN]
+00:39:16  19 of 20 START test reconcile_counts ........................................... [RUN]
+00:39:17  20 of 20 PASS unique_mart_grains ............................................... [PASS in 0.02s]
+00:39:17  19 of 20 PASS reconcile_counts ................................................. [PASS in 0.02s]
+00:39:17  
+00:39:17  Finished running 5 table models, 15 data tests in 0 hours 0 minutes and 1.39 seconds (1.39s).
+00:39:17  
+00:39:17  Completed successfully
+00:39:17  
+00:39:17  Done. PASS=20 WARN=0 ERROR=0 SKIP=0 NO-OP=0 REUSED=0 TOTAL=20

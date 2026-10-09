@@ -1,0 +1,27 @@
+{
+  "source_rows": 552073,
+  "accepted_trips": 550146,
+  "excluded_rows": 1927,
+  "station_ids": 1025,
+  "long_trips_over_4_hours_retained": 215,
+  "duration_timestamp_mismatch_rows_before_other_filters": 32,
+  "latest_accepted_arrival": "2026-04-01 04:37:24",
+  "rejection_reasons": [
+    {
+      "rejection_reason": "missing_or_invalid_station_id",
+      "rows": 1177
+    },
+    {
+      "rejection_reason": "invalid_timestamp",
+      "rows": 498
+    },
+    {
+      "rejection_reason": "invalid_duration",
+      "rows": 220
+    },
+    {
+      "rejection_reason": "duration_timestamp_mismatch",
+      "rows": 32
+    }
+  ]
+}

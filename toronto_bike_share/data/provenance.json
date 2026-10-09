@@ -1,0 +1,17 @@
+{
+  "archive_url": "https://opendata.toronto.ca/toronto.parking.authority/bike-share-toronto-ridership-data/bikeshare-ridership-2026.zip",
+  "retrieved_at_utc": "2026-10-08T23:33:28.567594+00:00",
+  "archive_sha256": "bea0091f9fd281bb9afc09c94cea4ac6437e790e1f7c7ff8918cc58eaaf03dd1",
+  "archive_bytes": 16469906,
+  "publisher": "City of Toronto / Toronto Parking Authority",
+  "dataset_page": "https://open.toronto.ca/dataset/bike-share-toronto-ridership-data/",
+  "licence": "Open Government Licence \u2013 Toronto",
+  "licence_url": "https://www.toronto.ca/city-government/data-research-maps/open-data/open-data-licence/",
+  "scope": "Complete published January\u2013March 2026 snapshot; 552073 CSV rows; no sampling. Despite the 2026 filename, this retrieved release ends 2026-03-31.",
+  "archive_member": "bikeshare-ridership-2026.csv",
+  "cached_file": "data/raw/bikeshare-ridership-2026-q1.zip",
+  "expected_start_month": "2026-01",
+  "expected_end_month": "2026-03",
+  "source_kind": "real official trip records; no synthetic records in analytics",
+  "csv_sha256": "c92ea3e113320bb2aaff9db87773728eece5b86e628c753dfefc36968635ccfa"
+}
