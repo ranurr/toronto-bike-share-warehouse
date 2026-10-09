@@ -15,7 +15,7 @@ COLUMNS = ['Trip_Id', 'Trip_Duration', 'Start_Station_Id', 'Start_Time',
 
 def load_csv(csv_path, database):
     """Also used by explicitly synthetic test fixtures; column drift fails loudly."""
-    con = duckdb.connect(str(database))
+    con = duckdb.connect(str(database), config={'memory_limit': '256MB', 'threads': 1})
     try:
         con.execute('BEGIN')
         con.execute('CREATE SCHEMA IF NOT EXISTS raw')
@@ -44,11 +44,14 @@ def ingest(database=None):
     if hashlib.sha256(archive.read_bytes()).hexdigest() != meta['archive_sha256']:
         raise ValueError('Cached ZIP checksum does not match provenance.json')
     with zipfile.ZipFile(archive) as z, tempfile.TemporaryDirectory() as temp:
-        payload = z.read(meta['archive_member'])
-        if hashlib.sha256(payload).hexdigest() != meta['csv_sha256']:
-            raise ValueError('CSV checksum does not match provenance.json')
         csv_path = Path(temp) / 'trips.csv'
-        csv_path.write_bytes(payload)
+        checksum = hashlib.sha256()
+        with z.open(meta['archive_member']) as source, csv_path.open('wb') as target:
+            while chunk := source.read(1024 * 1024):
+                checksum.update(chunk)
+                target.write(chunk)
+        if checksum.hexdigest() != meta['csv_sha256']:
+            raise ValueError('CSV checksum does not match provenance.json')
         count = load_csv(csv_path, database)
     print(f'Loaded {count:,} raw rows from the verified real-data snapshot.')
     return count
