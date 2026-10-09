@@ -5,4 +5,7 @@ toronto_bike_share:
       type: duckdb
       path: "{{ env_var('BIKE_DB_PATH', 'warehouse/bike_share.duckdb') }}"
       schema: main
-      threads: 2
+      threads: 1
+      settings:
+        memory_limit: '256MB'
+        threads: 1

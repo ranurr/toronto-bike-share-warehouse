@@ -41,6 +41,14 @@ installing dependencies. Stop Streamlit before rebuilding to avoid database file
 `run.py` creates `warehouse/bike_share.duckdb`, runs 15 dbt checks and writes the reports.
 The `--check-rerun` option loads everything twice and compares table counts and row hashes.
 
+## Publish the dashboard
+
+In Streamlit Community Cloud, connect this GitHub repository and set the main file path
+to `toronto_bike_share/app.py`. The first visit builds the database from the included ZIP
+and runs the dbt checks. Later visits reuse it. A restart may need to rebuild it; no data
+download or credentials are needed. DuckDB is limited to one thread and 256 MB while
+loading and building the models to leave room for the dashboard on a small server.
+
 ## Cleaning choices
 
 The source has **552,073 records**; **1,927** are excluded. Every record stays in

@@ -1,6 +1,9 @@
-"""A small local dashboard. Run the pipeline before starting this app."""
+"""Explore the saved trip snapshot locally or on Streamlit Community Cloud."""
 import json
+import os
 from pathlib import Path
+import subprocess
+import sys
 
 import duckdb
 import pandas as pd
@@ -11,15 +14,35 @@ DB = ROOT / 'warehouse/bike_share.duckdb'
 st.set_page_config(page_title='Toronto Bike Share | Q1 2026', page_icon='🚲', layout='wide')
 st.title('Toronto Bike Share')
 st.caption('Trip patterns and station activity · January–March 2026 · Toronto Open Data')
-if not DB.exists():
-    st.info('Build the local warehouse first: python run.py')
-    st.stop()
+
+@st.cache_resource(show_spinner='Preparing the trip data for the first visit…')
+def prepare_database():
+    # Cache this step so visitors arriving together share one build.
+    if DB.exists():
+        return
+    temporary_db = DB.with_name('bike_share_building.duckdb')
+    try:
+        result = subprocess.run(
+            [sys.executable, str(ROOT / 'run.py')], cwd=ROOT,
+            env=dict(os.environ, BIKE_DB_PATH=str(temporary_db)),
+            text=True, capture_output=True, timeout=180,
+        )
+        if result.returncode:
+            raise RuntimeError(f'Data preparation failed:\n{result.stdout}\n{result.stderr}')
+        # Only publish the database after the models and data checks pass.
+        temporary_db.replace(DB)
+    finally:
+        temporary_db.unlink(missing_ok=True)
+
+
+prepare_database()
 
 
 @st.cache_data(show_spinner=False)
 def query(sql, params, revision):
     # revision is the database modification time; rebuilding invalidates cached results.
-    with duckdb.connect(str(DB), read_only=True) as con:
+    with duckdb.connect(str(DB), read_only=True,
+                        config={'memory_limit': '256MB', 'threads': 1}) as con:
         return con.execute(sql, params).df()
 
 

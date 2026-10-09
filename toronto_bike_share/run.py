@@ -12,7 +12,7 @@ from scripts.ingest import ingest
 from scripts.report import write_report
 
 ROOT = Path(__file__).resolve().parent
-DB = ROOT / 'warehouse/bike_share.duckdb'
+DB = Path(os.environ.get('BIKE_DB_PATH', ROOT / 'warehouse/bike_share.duckdb'))
 TABLES = ['raw.trips','stg_trips','dim_station','fct_trip','mart_daily_ridership','mart_station_hour']
 
 
